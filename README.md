@@ -1,6 +1,8 @@
 # 개요
 
-PDF File HTML 변환기
+PDF to HTML convertor
+
+비정형·비구조화된 데이터를 포함하는 PDF 파일을 AI가 학습할 수 있도록 HTML 형식으로 변환하는 기능 수행
 
 # 개발환경
 
@@ -42,12 +44,11 @@ python --version
   pip install matplotlib
   ```
 
-# 실행
+# 실행 방법
 
-1. `/pdf_to_html_convertor` 패키지의 `convertor.py` Open
-2. `@dataclass`인 `ConversionSettings`의 `Azure Document Intelligence` 관련 값 세팅
-3. 파일 최하단 PDF 파일 세팅
-4. 실행
+1. `/pdf_to_html_convertor` 패키지의 `convertor.py` 오픈
+2. `ConversionSettings`의 `azure_di_endpoint_url`, `azure_di_api_key` 값 세팅 (유료, 발급해서 사용)
+3. 파일 최하단 실행 예시 확인
 
 ### 결과
 
@@ -78,6 +79,7 @@ PDF 파일과 같은 경로에 PDF 파일명과 같은 폴더가 생성되며 `/
 ### 기타
 
 - `test_settings.py`: 테스트 셋팅
+    + `AZURE_DI_ENDPOINT_URL`, `AZURE_DI_API_KEY` 값 세팅 (유료, 발급해서 사용)
 - `split_pdf_page_to_pdf.py`: PDF 파일 페이지 분할 저장 (PDF)
 - `split_pdf_page_to_image.py`: PDF 파일 페이지 분할 저장 (IMAGE)
 - `os_path_test.py`: os별 파일경로 테스트

@@ -44,11 +44,11 @@ def footer() -> List[str]:
 
 def page_start_line(page_number: int) -> List[str]:
     return [
-        f'    <p page={page_number}>↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ {page_number} page ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</p>'
+        f'    <p page={page_number} dvsn="Start"></p>'
     ]
 
 
 def page_end_line(page_number: int) -> List[str]:
     return [
-        f'    <p page={page_number}>↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ {page_number} page ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</p>'
+        f'    <p page={page_number} dvsn="End"></p>'
     ]
