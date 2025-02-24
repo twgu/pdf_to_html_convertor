@@ -377,14 +377,14 @@ class Conversion:
 
         print(f'>>>> [{datetime.now()}] <HTML 변환 종료>')
 
-    def start(self):
+    def start(self) -> str:
         stime = datetime.now()
         print(f'>>>> [{stime}] 변환시작')
         print(f'>>>> [{stime}] 대상파일: {self.settings.file_full_name}')
 
         if not self.initialize():
             print_end_message(stime)
-            return
+            return ''
 
         contents = []
         contents.extend(self.extract_text_contents())
@@ -394,6 +394,8 @@ class Conversion:
         self.to_html(contents)
 
         print_end_message(stime)
+
+        return os.path.join(self.settings.conversion_save_folder, self.settings.file_name + '.html')
 
 
 # 실행
