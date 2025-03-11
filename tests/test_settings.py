@@ -1,8 +1,11 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # File
 FILE_FULL_NAME = os.path.normpath(
-    'C:/Users/gutaewan/Downloads/품질영향평가.pdf'
+    'C:/Users/a2023200/Documents/file_name.pdf'
 )
 FILE_PATH = os.path.dirname(FILE_FULL_NAME)
 FILE_NAME, FILE_EXTENSION = os.path.splitext(os.path.basename(FILE_FULL_NAME))
@@ -13,8 +16,8 @@ WORKING_FOLDER = os.path.normpath(os.path.join(FILE_PATH, FILE_NAME))
 CONVERSION_SAVE_FOLDER = os.path.normpath(os.path.join(WORKING_FOLDER, 'conversion'))
 
 # Azure Document Intelligence
-AZURE_DI_ENDPOINT_URL = ''
-AZURE_DI_API_KEY = ''
+AZURE_DI_ENDPOINT_URL = os.getenv('ENDPOINT')
+AZURE_DI_API_KEY = os.getenv('API_KEY')
 
 # Image min size
 IMAGE_MIN_WIDTH = 15

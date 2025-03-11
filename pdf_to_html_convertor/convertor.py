@@ -1,5 +1,6 @@
 import os
 import shutil
+from dotenv import load_dotenv
 
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -24,6 +25,8 @@ def print_end_message(stime: datetime):
 
 @dataclass
 class ConversionSettings:
+    load_dotenv()
+
     # File
     file_full_name: str
     file_path: str = field(init=False)
@@ -35,8 +38,8 @@ class ConversionSettings:
     conversion_save_folder: str = field(init=False)
 
     # Azure Document Intelligence
-    azure_di_endpoint_url: str = field(default='')
-    azure_di_api_key: str = field(default='')
+    azure_di_endpoint_url: str = field(default=os.getenv('ENDPOINT'))
+    azure_di_api_key: str = field(default=os.getenv('API_KEY'))
 
     # Image min size
     image_min_width: int = field(default=15)
@@ -401,6 +404,7 @@ class Conversion:
 # 실행
 if __name__ == '__main__':
     conversion = Conversion(
-        'C:/Users/gutaewan/Downloads/품질영향평가.pdf'
+        'C:/Users/a2023200/Documents/file_name.pdf'
     )
+
     conversion.start()
